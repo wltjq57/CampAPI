@@ -43,14 +43,6 @@ header {
   float: left;
 }
 
-.search {
-  /*검색*/
-  margin: 15px;
-  padding: 3px;
-  float: right;
-  width: 150px;
-}
-
 .btn {
   /*로그인버튼*/
   margin: 16px;
@@ -310,4 +302,9 @@ footer>ul>li>a:hover {
 footer>.company {
   /* YaCamping Corp */
   float: right;
+}
+/*캠핑장 리스트 이미지*/
+.list-img {
+	width: 100px;
+	height: 100px;
 }

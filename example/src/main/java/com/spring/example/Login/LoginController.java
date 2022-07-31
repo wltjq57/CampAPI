@@ -1,6 +1,6 @@
 package com.spring.example.Login;
 
-import javax.inject.Inject;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.spring.example.VO.MemberVO;
-import com.spring.example.service.MemberService;
+
 import com.spring.example.serviceImpl.MemberServiceImpl;
 
 @Controller

@@ -14,5 +14,4 @@
     	INSERT INTO MEMBER
     		VALUES(member_seq.nextval, #{id}, #{password}, #{name}, #{nickname}, #{phone}, #{birth}, #{email}, #{address}, #{gender})
     </insert>
-
 </mapper>

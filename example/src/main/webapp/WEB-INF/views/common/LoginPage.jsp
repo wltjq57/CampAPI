@@ -217,7 +217,6 @@ h2 {
 								value="네이버 로그인" class="naver">
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</form>

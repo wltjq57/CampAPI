@@ -18,7 +18,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.219.100:1521:XE"></property>
 		<property name="username" value="c##java"></property>
 		<property name="password" value="java"></property>
 	</bean>
@@ -38,5 +38,6 @@
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg ref= "sqlSessionFactory"></constructor-arg >
     </bean>
-
+    
+    <context:component-scan base-package="com.spring.example.service"></context:component-scan>
 </beans>

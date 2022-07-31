@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>    
 <% String id = (String)session.getAttribute("id"); %>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +45,6 @@
         <%} else {%>
         <a href="/Logout"><input type="button" class="btn" value="logout"></a>
         <% } %>
-        <input type="search" class="search" name="search">
       </div>
     </header>
     <!--이미지 슬라이드-->
@@ -64,7 +65,7 @@
     <div class="category">
       <!--카테고리 중 캠핑-->
       <div class="category_menu">
-        <a href="#"><img src="resources/image/camping_icon.png">
+        <a href="/board/list?type=T&keyword=&type=C&category=캠핑"><img src="resources/image/camping_icon.png">
           <p class="menu_name">캠핑</p>
           
         </a>
@@ -72,14 +73,14 @@
 
       <!--카테고리 중 글램핑-->
       <div class="category_menu">
-        <a href="#"><img src="resources/image/glamping_icon.png">
+        <a href="/board/list?type=T&keyword=&type=C&category=글램핑"><img src="resources/image/glamping_icon.png">
           <p class="menu_name">글램핑</p>
         </a>
       </div>
 
       <!--카테고리 중 카라반-->
       <div class="category_menu">
-        <a href="#"><img src="resources/image/caravan_icon.png">
+        <a href="/board/list?type=T&keyword=&type=C&category=카라반"><img src="resources/image/caravan_icon.png">
           <p class="menu_name">카라반</p>
    
         </a>
@@ -87,28 +88,35 @@
 
       <!--카테고리 중 펜션-->
       <div class="category_menu">
-        <a href="#"><img src="resources/image/pension_icon.png">
+        <a href="/board/list?type=T&keyword=&type=C&category=펜션"><img src="resources/image/pension_icon.png">
           <p class="menu_name">펜션</p>
         </a>
       </div>
     </div>
+    <form id ="searchForm" action="/board/list" method="get">
     <!--검색-->
     <div class="main_search">
       <div class="search_box">
         <!--체크인/체크아웃-->
-        <input type="date" class="search_date">
-        <input type="date" class="search_date">
-
+       	<input type="hidden" name="pageNum" value=1>
+       	<input type="hidden" name="amount" value=4>
+       	<input type="hidden" name="type" value="">
+        <input type="date" class="search_date" name="startDate" value='startDate' <c:out value="${pageMaker.cri.startDate}"/>>  
+       
+        <input type="date" class="search_date" name="endDate" value='endDate' <c:out value="${pageMaker.cri.endDate}"/>> 
+        
         <!--지역선택-->
-        <img src="resources/image/pin.png"><input type="text" class="search_region" placeholder="지역 선택">
-
+       
+        <img src="resources/image/pin.png"><input type="text" class="search_region" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>' placeholder="지역 선택">
         <!--카테고리 선택-->
-        <img src="resources/image/hashtag.png"><input type="text" class="search_category" placeholder="카테고리 선택">
+       
+        <img src="resources/image/hashtag.png"><input type="text" class="search_category" name="category"  value='<c:out value="${pageMaker.cri.category}"/>' placeholder="카테고리 선택">
       </div>
-
+      
       <!--검색버튼-->
       <button class="search_btn">검색</button>
     </div>
+    </form>
     <!--세일 목록-->
     <div class="sale">
       <div><a href="#"><img class="sale-img" src="https://dummyimage.com/180x180/000000/fff"></a></div>
@@ -201,5 +209,4 @@
   </div>
   <script src="resources/js/script.js"></script>
 </body>
-
 </html>

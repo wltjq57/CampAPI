@@ -12,6 +12,6 @@ public class MemberController {
 	 @Autowired
 	    private MemberServiceImpl memberServiceImpl;
 	 
-	 //회원가입 get
-	
+	 //�쉶�썝媛��엯 get
+	 
 }
