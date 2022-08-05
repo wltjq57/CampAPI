@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>    
 <% String id = (String)session.getAttribute("id"); %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +41,12 @@
         <img src="https://dummyimage.com/150x100/c2c2c2/000000&text=+LOGO" class="logo" alt="로고">
         <%if(id == null) { %>
         <a href="/Login"><input type="button" class="btn" value="login"></a>
+
         <%} else {%>
+       
         <a href="/Logout"><input type="button" class="btn" value="logout"></a>
         <% } %>
+     	
       </div>
     </header>
     <!--이미지 슬라이드-->

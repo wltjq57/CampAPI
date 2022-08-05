@@ -25,7 +25,7 @@ public class httpConnection {
 		return httpConnection_Singieton.instance;
 	}
 	
-	//get諛⑹떇 rest �샇異쒖떆 �궗�슜
+	//get방식 rest 호출시 사용
 	public StringBuffer HttpGetConnection(String apiURL) throws IOException {
 		StringBuffer response = new StringBuffer();
 
@@ -36,7 +36,7 @@ public class httpConnection {
         return responseHttp(con);
 	}
 	
-	//get諛⑹떇 rest �샇異쒖떆 �궗�슜
+	//get방식 rest 호출시 사용
 	public StringBuffer HttpGetConnection(String apiURL, Map<String, String> header) throws IOException {
 		StringBuffer response = new StringBuffer();
 
@@ -44,7 +44,7 @@ public class httpConnection {
         HttpURLConnection con = (HttpURLConnection)url.openConnection();
         con.setRequestMethod("GET");
 
-	      //留뚯빟�뿉 �뙆�씪硫뷀꽣�뿉 Authorization媛� �엳�떎硫� �뿤�뜑濡� 異붽� �썑 params�뿉�꽌 �젣嫄�
+        //만약에 파라메터에 Authorization가 있다면 헤더로 추가 후 params에서 제거
 	      if(header.get("Authorization") != null) {
 	    	  con.setRequestProperty("Authorization", header.get("Authorization"));
 	    	  header.remove("Authorization");
@@ -53,27 +53,27 @@ public class httpConnection {
         return responseHttp(con);
 	}
 	
-	//post諛⑹떇 rest �샇異쒖떆 �궗�슜
+	//post방식 rest 호출시 사용
 	public StringBuffer HttpPostConnection(String apiURL, Map<String, String> params) throws IOException {
 	      URL url = new URL(apiURL);
 	      HttpURLConnection con = (HttpURLConnection)url.openConnection();
 	      con.setRequestMethod("POST");
 	      con.setDoOutput(true);
 	      
-	      //留뚯빟�뿉 �뙆�씪硫뷀꽣�뿉 Authorization媛� �엳�떎硫� �뿤�뜑濡� 異붽� �썑 params�뿉�꽌 �젣嫄�
+	    //만약에 파라메터에 Authorization가 있다면 헤더로 추가 후 params에서 제거
 	      if(params.get("Authorization") != null) {
 	    	  con.setRequestProperty("Authorization", params.get("Authorization"));
 	    	  params.remove("Authorization");
 	      }
 	      
 	      // post request
-	      // �빐�떦 string�� UTF-8濡� encode �썑 MS949濡� �옱 encode瑜� �닔�뻾�븳 媛�
+	     
 	      BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(con.getOutputStream()));
           StringBuilder sb = new StringBuilder();
           
           int amp = 0;
           for( String key : params.keySet() ){
-        	  //2踰덉㎏ �뙆�씪硫뷀꽣遺��꽣�뒗 援щ텇�옄 &媛� �엳�뼱�빞�븳�떎.
+        	//2번째 파라메터부터는 구분자 &가 있어야한다.
         	  if(amp >= 1) sb.append("&"); amp+=1; 
         	  
         	  sb.append(key+params.get(key));
@@ -89,15 +89,15 @@ public class httpConnection {
 	      return responseHttp(con);
 	}
 	
-	//�꽌踰꾩뿉 �슂泥��븯�뒗 硫붿냼�뱶
+	//서버에 요청하는 메소드
 	public StringBuffer responseHttp(HttpURLConnection con) throws IOException {
 		StringBuffer response = new StringBuffer();
 		
 	    int responseCode = con.getResponseCode();
 	    BufferedReader br;
-	    if(responseCode==200) { // �젙�긽 �샇異�
+	    if(responseCode==200) {// 정상 호출
 	        br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-	    } else {  // �뿉�윭 諛쒖깮
+	    } else {  // 에러 발생
 	        br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 	    }
 	      
@@ -110,9 +110,9 @@ public class httpConnection {
 	    return response;
 	}
 	
-	//�뙆�씪硫뷀꽣 URL �씤肄붾뵫
+	//파라메터 URL 인코딩
 	public String URLencoder(String contents) throws UnsupportedEncodingException {
-		return URLEncoder.encode(URLEncoder.encode(contents, ENCODING), "MS949");
+		return URLEncoder.encode(URLEncoder.encode(contents, ENCODING), "UTF-8");
 	}
 	
 }

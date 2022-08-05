@@ -178,7 +178,8 @@ h2 {
 					<h2>야캠핑어때</h2>
 
 					<div class="login_id">
-						<input type="text" name="id" id="id" value="${cookie.id.value}" placeholder="ID">
+						<input type="text" name="id" id="id" value="${cookie.id.value}"
+							placeholder="ID">
 					</div>
 
 					<div class="login_pw">
@@ -188,7 +189,8 @@ h2 {
 
 					<div class="login_etc">
 						<div class="checkbox">
-							<input type="checkbox" ${empty cookie.id.value ? "":"checked" } name="rememberId"> 아이디 저장하기
+							<input type="checkbox" ${empty cookie.id.value ? "":"checked" }
+								name="rememberId"> 아이디 저장하기
 						</div>
 
 						<div class="forgot_id_pw">
@@ -209,8 +211,9 @@ h2 {
 
 					<div class="sns_login">
 						<div class="kakao_login">
-							<img src="resources/image/kakao.jpg"><input type="submit"
-								value="카카오 로그인" class="kakao">
+							<img src="resources/image/kakao.jpg"><input type="button"
+								onclick="location.href='kakaologin'" value="카카오 로그인"
+								class="kakao">
 						</div>
 						<div class="naver_login">
 							<img src="resources/image/naver.png"><input type="submit"
