@@ -46,7 +46,7 @@
        
         <a href="/Logout"><input type="button" class="btn" value="logout"></a>
         <% } %>
-     	
+     	<%=id %>
       </div>
     </header>
     <!--이미지 슬라이드-->
