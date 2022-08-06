@@ -3,7 +3,7 @@
 <% String id = (String)session.getAttribute("id"); %>
 <% String nickname = (String)session.getAttribute("nickname"); %>
 <% String email = (String)session.getAttribute("email"); %>
-<% String kakaoId = (String)session.getAttribute("kakaoId"); %>
+
 
 
 
@@ -55,7 +55,7 @@
      	<%=id %>
      	<%=nickname %>
      	<%=email %>
-     	<%=kakaoId %>
+     	
 
      	
       </div>

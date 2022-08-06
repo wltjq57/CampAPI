@@ -7,8 +7,6 @@ public class KakaoVO {
 	private String account_email;
 	
 	
-	
-	
 	public String getNickname() {
 		return nickname;
 	}
@@ -28,6 +26,7 @@ public class KakaoVO {
 	public void setKakaoId(Long kakaoId) {
 		this.kakaoId = kakaoId;
 	}
+	
 	
 }
 

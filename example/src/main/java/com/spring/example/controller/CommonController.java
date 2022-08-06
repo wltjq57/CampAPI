@@ -47,6 +47,8 @@ public class CommonController{
 		
 		
 		session.setAttribute("id", access_Token); // id값이 들어가서 Login 성공
+		session.setAttribute("id", userInfo.getAccount_email()); // id값에 입력한 id 출력
+		
 		
 		//session.setAttribute("kakaoId", userInfo.getKakaoId());
 		
