@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% String id = (String)session.getAttribute("id"); %>
+<% String nickname = (String)session.getAttribute("nickname"); %>
+<% String email = (String)session.getAttribute("email"); %>
+<% String kakaoId = (String)session.getAttribute("kakaoId"); %>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +45,7 @@
     <header>
       <div class="head">
         <img src="https://dummyimage.com/150x100/c2c2c2/000000&text=+LOGO" class="logo" alt="로고">
-        <%if(id == null) { %>
+        <%if(id == null){ %>
         <a href="/Login"><input type="button" class="btn" value="login"></a>
 
         <%} else {%>
@@ -47,6 +53,11 @@
         <a href="/Logout"><input type="button" class="btn" value="logout"></a>
         <% } %>
      	<%=id %>
+     	<%=nickname %>
+     	<%=email %>
+     	<%=kakaoId %>
+
+     	
       </div>
     </header>
     <!--이미지 슬라이드-->
