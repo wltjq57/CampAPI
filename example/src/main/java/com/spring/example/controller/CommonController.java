@@ -44,6 +44,9 @@ public class CommonController{
 		System.out.println("Common Controller:"+ userInfo);
 		System.out.println("nickname: "+ userInfo.getNickname());
 		System.out.println("email: "+ userInfo.getAccount_email());
+		System.out.println("gender: "+ userInfo.getGender());
+		System.out.println("age_range: "+ userInfo.getAge_range());
+		System.out.println("birthday: "+ userInfo.getBirthday());
 		
 		
 		session.setAttribute("id", access_Token); // id값이 들어가서 Login 성공
@@ -58,6 +61,7 @@ public class CommonController{
 		     session.setAttribute("access_Token", access_Token);
 		     session.setAttribute("kakaoId", userInfo.getKakaoId());
 		     session.setAttribute("email", userInfo.getAccount_email());
+		     session.setAttribute("gender", userInfo.getGender());
 		   }
             
         return "/home";

@@ -49,7 +49,7 @@ public class kakaoService {
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
 				StringBuilder sb = new StringBuilder();
 				sb.append("grant_type=authorization_code");
-				sb.append("&client_id=fefb327bbd1259b56dd9f67b9a0bb86d");
+				sb.append("&client_id=7be620bec56f17ae41e078a7330e78f7");
 				sb.append("&redirect_uri=http://localhost:8080/kakaoLogin");
 				sb.append("&code=" + authorize_code);
 				bw.write(sb.toString());
@@ -148,16 +148,22 @@ public class kakaoService {
 
 				// kakao_account
 				String email = kakao_account.getAsJsonObject().get("email").getAsString();
+				String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
+				String birthday = kakao_account.getAsJsonObject().get("birthday").getAsString();
+				String age_range = kakao_account.getAsJsonObject().get("age_range").getAsString();
 				
 
 				System.out.println("id: " + id);
 				System.out.println("nickname: " + nickname);
-
+				System.out.println("gender: " + gender);
+				
 				// setter이용하여 KakaoVO에 담기
 				userInfo.setKakaoId(id);
 				userInfo.setNickname(nickname);
 				userInfo.setAccount_email(email);
-				
+				userInfo.setGender(gender);
+				userInfo.setAge_range(age_range);
+				userInfo.setBirthday(birthday);
 				
 
 			} catch (MalformedURLException e) {
